@@ -8,10 +8,38 @@ namespace ManagementSystem.Domain.Entities;
 
 public class Employee
 {
-    public Guid Id { get; set; }
-    public string FullName { get; set; } = string.Empty;
+    public Guid Id { get; private set; }
 
-    public string Department { get; set; } = string.Empty;
+    public string FullName { get; private set; }
 
-    public DateTime JoiningDate { get; set; }
+    public string Department { get; private set; }
+
+    public DateTime JoiningDate { get; private set; }
+
+    private Employee() { }
+
+    public Employee(string fullName, string department, DateTime joiningDate)
+    {
+        if (string.IsNullOrWhiteSpace(fullName))
+            throw new ArgumentException("Full name is required");
+
+        if (string.IsNullOrWhiteSpace(department))
+            throw new ArgumentException("Department is required");
+
+        if (joiningDate > DateTime.UtcNow)
+            throw new ArgumentException("Joining date cannot be in the future");
+
+        Id = Guid.NewGuid();
+        FullName = fullName;
+        Department = department;
+        JoiningDate = joiningDate;
+    }
+
+    public void ChangeDepartment(string newDepartment)
+    {
+        if (string.IsNullOrWhiteSpace(newDepartment))
+            throw new ArgumentException("Department cannot be empty");
+
+        Department = newDepartment;
+    }
 }

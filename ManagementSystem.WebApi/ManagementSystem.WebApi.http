@@ -1,6 +1,8 @@
 @ManagementSystem.WebApi_HostAddress = http://localhost:5278
 
-GET {{ManagementSystem.WebApi_HostAddress}}/weatherforecast/
+GET {{ManagementSystem.WebApi_HostAddress}}/api/leaverequests
 Accept: application/json
 
 ###
+
+

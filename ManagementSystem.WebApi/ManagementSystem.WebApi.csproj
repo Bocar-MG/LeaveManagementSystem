@@ -15,10 +15,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
 
+	  <PackageReference Include="Scalar.AspNetCore" Version="2.1.15" />
+
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ManagementSystem.Application\ManagementSystem.Application.csproj" />
+    <ProjectReference Include="..\ManagementSystem.Contracts\ManagementSystem.Contracts.csproj" />
     <ProjectReference Include="..\ManagementSystem.Infrastructure\ManagementSystem.Infrastructure.csproj" />
   </ItemGroup>
 
