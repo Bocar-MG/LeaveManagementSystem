@@ -45,7 +45,7 @@ Reasons for choosing this architecture:
 
 - Clean Architecture implementation  
 - RESTful API  
-- Object mapping with AutoMapper  
+- Object mapping without any third part library
 - Global error handling via middleware  
 - Decentralized configuration (each layer has its own `DependencyInjection` file)
 
