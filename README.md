@@ -68,9 +68,11 @@ Reasons for choosing this architecture:
 ## Quick Start
 
 ### Clone the repository
-
+```bash
 git clone https://github.com/Bocar-MG/LeaveManagementSystem.git
 cd LeaveManagementSystem
+dotnet restore
+dotnet run --project .\ManagementSystem.WebApi
 dotnet restore
 dotnet run --project .\ManagementSystem.WebApi
 
