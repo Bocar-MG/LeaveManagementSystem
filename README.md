@@ -10,16 +10,11 @@ This project provides a robust, scalable, and testable structure for modern prof
 - [Project Objectives](#project-objectives)
 - [Architecture](#architecture)
 - [Features](#features)
+- [Project Structrues](#project-structures)
 - [Prerequisites](#prerequisites)
 - [Quick Start](#quick-start)
-- [Project Structure](#project-structure)
-- [Tests](#tests)
-- [Technologies](#technologies)
-- [API Documentation](#api-documentation)
-- [Security](#security)
-- [Roadmap](#roadmap)
-- [Contribution](#contribution)
-- [License](#license)
+- [Docker Usage](#docker-usage)
+- [API Documentation](#api-Documentation)
 
 ---
 
@@ -56,6 +51,18 @@ Reasons for choosing this architecture:
 
 ---
 
+## Project Structures
+The project is divided into 5 parts
+- Application
+- Contracts
+- Domain
+- Infrastructure
+- WebApi
+
+
+
+---
+
 ## Prerequisites
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/)
@@ -73,7 +80,35 @@ git clone https://github.com/Bocar-MG/LeaveManagementSystem.git
 cd LeaveManagementSystem
 dotnet restore
 dotnet run --project .\ManagementSystem.WebApi
-dotnet restore
-dotnet run --project .\ManagementSystem.WebApi
+
+```
+
+## Docker Usage
+
+### Pull and run the Docker image
+```bash
+docker pull bocarmg/managementsystem
+docker run -d -p 7001:5001 bocarmg/managementsystem
+
+```
+---
+
+## API Documentation
+
+This project uses **[Scalar](https://scalar.com)** for modern, interactive API documentation.
+
+### 📘 Scalar UI (Interactive Explorer)
+You can explore and test the API directly in your browser:
+
+http://localhost:7001/scalar/v1
+Scalar provides a modern, developer-friendly interface — a great alternative to Swagger.
+
+### 🔌 REST API Base Endpoint
+To interact with the API using tools like Postman or cURL:
+
+http://localhost:7001/api/leaverequest
+
+
+
 
 
