@@ -6,6 +6,9 @@ using ManagementSystem.Domain.Enums;
 
 namespace ManagementSystem.WebApi.Mapping;
 
+// I used Mapping Extensions to map between the domain entities and the contract objects.
+// i didn't use AutoMapper because i wanted to have more control over the mapping process and to avoid the overhead of using a third-party library.
+// beacuse actually  many libraries are becoming commercial so it's a good practice to our own way
 public static class ContractMapping
 {
     public static LeaveRequest MapToLeaveRequest(this CreateLeaveRequest request)

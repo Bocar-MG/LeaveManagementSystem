@@ -32,6 +32,7 @@ public class LeaveRequestRepository : ILeaveRequestRepository
 
     }
 
+    
     public async Task<List<LeaveRequest>> GetAllAsync(GetAllLeaveRequestOptions getAllLeaveRequestOptions)
     {
         var query = _context.LeaveRequests.AsQueryable();

@@ -2,6 +2,7 @@
 
 namespace ManagementSystem.WebApi.ExceptionHandlerMiddleware;
 
+// it's an middleware to handle the exceptions in the application in global
 public class ExceptionHandlingMiddleware
 {
     private readonly RequestDelegate _next;
