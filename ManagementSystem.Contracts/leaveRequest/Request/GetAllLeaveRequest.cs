@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManagementSystem.Contracts.leaveRequest.Request;
 
-public class GetAllLeaveRequest
+public class GetAllLeaveRequest : PageRequest
 {
    public Guid? EmployeeId { get; set; }
    public DateTime? StartDate { get; set; }
@@ -17,4 +17,6 @@ public class GetAllLeaveRequest
    public int? Status { get; set; } 
 
    public string? SortBy { get; set; }
+
+    public string? SearchTerm { get; set; }
 }

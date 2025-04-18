@@ -17,12 +17,16 @@ builder.Services.AddApplication()
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+app.MapOpenApi();
+app.MapScalarApiReference();
+/*if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.MapScalarApiReference();
 
 }
+*/
 
     using (var scope = app.Services.CreateScope())
 {

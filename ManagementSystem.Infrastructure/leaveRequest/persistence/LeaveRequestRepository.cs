@@ -33,18 +33,17 @@ public class LeaveRequestRepository : ILeaveRequestRepository
     }
 
     public async Task<List<LeaveRequest>> GetAllAsync(GetAllLeaveRequestOptions getAllLeaveRequestOptions)
-    {   
-        
-
+    {
         var query = _context.LeaveRequests.AsQueryable();
 
+      
         if (getAllLeaveRequestOptions.EmployeeId.HasValue)
             query = query.Where(x => x.EmployeeId == getAllLeaveRequestOptions.EmployeeId.Value);
 
         if (getAllLeaveRequestOptions.Status.HasValue)
             query = query.Where(x => x.Status == (Status)getAllLeaveRequestOptions.Status.Value);
 
-        if(getAllLeaveRequestOptions.StartDate.HasValue)
+        if (getAllLeaveRequestOptions.StartDate.HasValue)
             query = query.Where(x => x.StartDate >= getAllLeaveRequestOptions.StartDate.Value);
 
         if (getAllLeaveRequestOptions.EndDate.HasValue)
@@ -53,16 +52,34 @@ public class LeaveRequestRepository : ILeaveRequestRepository
         if (getAllLeaveRequestOptions.LeaveType.HasValue)
             query = query.Where(x => x.LeaveType == (LeaveType)getAllLeaveRequestOptions.LeaveType.Value);
 
-        if (!string.IsNullOrWhiteSpace(getAllLeaveRequestOptions.SortField))
+
+        if (!string.IsNullOrWhiteSpace(getAllLeaveRequestOptions.SearchTerm))
         {
-            string orderExpression = $"{getAllLeaveRequestOptions.SortField} {(getAllLeaveRequestOptions.SortOrder == SortOrder.Descending ? "descending" : "ascending")}";
-            query = query.OrderBy(orderExpression);
+            var searchTerm = getAllLeaveRequestOptions.SearchTerm.Trim().ToLower();
+            query = query.Where(x => EF.Functions.Like(x.Reason.ToLower(), $"%{searchTerm}%"));
         }
 
-        var leaveRequests = await query.ToListAsync();
+
+        if (!string.IsNullOrWhiteSpace(getAllLeaveRequestOptions.SortField))
+        {
+            var validSortFields = new List<string> { "StartDate", "EndDate", "EmployeeId" }; 
+            if (validSortFields.Contains(getAllLeaveRequestOptions.SortField))
+            {
+                query = getAllLeaveRequestOptions.SortOrder == SortOrder.Descending
+                    ? query.OrderByDescending(x => EF.Property<object>(x, getAllLeaveRequestOptions.SortField))
+                    : query.OrderBy(x => EF.Property<object>(x, getAllLeaveRequestOptions.SortField));
+            }
+        }
+
+     
+        var leaveRequests = await query
+            .Skip((getAllLeaveRequestOptions.Page - 1) * getAllLeaveRequestOptions.PageSize)
+            .Take(getAllLeaveRequestOptions.PageSize)
+            .ToListAsync();
 
         return leaveRequests;
     }
+
 
     public async Task<LeaveRequest?> GetLeaveRequestByIdAsync(Guid id)
     {

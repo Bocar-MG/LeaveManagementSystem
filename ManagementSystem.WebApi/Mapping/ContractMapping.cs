@@ -59,7 +59,11 @@ public static class ContractMapping
             Status = getAllLeaveRequest.Status,
             SortField = getAllLeaveRequest.SortBy?.Trim('+','-'),
             SortOrder = getAllLeaveRequest.SortBy is null ? SortOrder.Unsorted:
-               getAllLeaveRequest.SortBy.StartsWith('-') ? SortOrder.Descending : SortOrder.Ascending
+               getAllLeaveRequest.SortBy.StartsWith('-') ? SortOrder.Descending : SortOrder.Ascending,
+            Page = getAllLeaveRequest.Page,
+            PageSize = getAllLeaveRequest.PageSize,
+
+            SearchTerm = getAllLeaveRequest.SearchTerm,
 
         };
     }

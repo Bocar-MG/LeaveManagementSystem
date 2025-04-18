@@ -10,7 +10,7 @@ public class Employee
 {
     public Guid Id { get; private set; }
 
-    public string FullName { get; private set; }
+    public  string FullName { get; private set; }
 
     public string Department { get; private set; }
 
