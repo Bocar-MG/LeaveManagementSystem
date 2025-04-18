@@ -1,77 +1,77 @@
-# 🛠️ NomDuProjet.Backend
+# ManagementLeaveSystem
 
-Backend développé en **.NET 9** basé sur les principes de **Clean Architecture**.  
-Ce projet propose une structure robuste, évolutive et testable pour des applications professionnelles modernes.
-
----
-
-## 📚 Sommaire
-
-- [🧭 Objectifs du projet](#-objectifs-du-projet)
-- [🏗️ Architecture](#-architecture)
-- [🚀 Fonctionnalités](#-fonctionnalités)
-- [⚙️ Prérequis](#-prérequis)
-- [▶️ Démarrage rapide](#️-démarrage-rapide)
-- [📂 Structure du projet](#-structure-du-projet)
-- [🧪 Tests](#-tests)
-- [📦 Technologies](#-technologies)
-- [📈 API Documentation](#-api-documentation)
-- [🔐 Sécurité](#-sécurité)
-- [🛣️ Roadmap](#-roadmap)
-- [🙋 Contribution](#-contribution)
-- [📄 Licence](#-licence)
+Backend developed with **.NET 9**, following the principles of **Clean Architecture**.  
+This project provides a robust, scalable, and testable structure for modern professional applications.
 
 ---
 
-##  Objectifs du projet
+## Table of Contents
 
-Ce backend a été conçu pour **Pour un test d'un systéme basé sur le demande de congé**.  
-Il respecte les bonnes pratiques de développement logiciel, notamment :
-- Séparation des responsabilités
-- Couplage faible entre les composants
-- Maintenabilité à long terme
-
----
-
-##  Architecture
-
-Ce projet suit les principes de la **Clean Architecture** avec une stricte séparation des responsabilités entre les couches.
-j'ai choisi cette architecture car :
-- C'est l'architecture que je connais le plus
-- C'est parmi les architectures les plus utilisés coté developpement logiciel surtout avec .NET
-- Il a deja fais ses preuves sur de nombreux projets
-- Et comme cité ci-haut c'est une architecture basé sur des couches ce qui permet de travailler individuellemnt sur chaque projet appart
-
+- [Project Objectives](#project-objectives)
+- [Architecture](#architecture)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Project Structure](#project-structure)
+- [Tests](#tests)
+- [Technologies](#technologies)
+- [API Documentation](#api-documentation)
+- [Security](#security)
+- [Roadmap](#roadmap)
+- [Contribution](#contribution)
+- [License](#license)
 
 ---
 
-## Fonctionnalités
+## Project Objectives
 
- Architecture Clean Architecture  
- API REST  
- Mapping  
- Middleware d’erreurs globales  
- Configuration decentralisé(pour chaque couches son propre fichier DependencyInjection)
+This backend was developed as a **test project for a leave request management system**.  
+It follows software development best practices, including:
+
+- Separation of concerns  
+- Low coupling between components  
+- Long-term maintainability
 
 ---
 
-## Prérequis
+## Architecture
+
+This project is based on **Clean Architecture**, with strict separation of responsibilities across layers.  
+Reasons for choosing this architecture:
+
+- It is the one I am most familiar with  
+- It is one of the most widely used architectures in .NET application development  
+- It has proven its effectiveness in many real-world projects  
+- Its layered structure allows for independent work on each part of the application
+
+---
+
+## Features
+
+- Clean Architecture implementation  
+- RESTful API  
+- Object mapping with AutoMapper  
+- Global error handling via middleware  
+- Decentralized configuration (each layer has its own `DependencyInjection` file)
+
+---
+
+## Prerequisites
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/)
-- IDE : Visual Studio 2022 / Rider / VS Code
-- (Optionnel) Serveur SQL : SQL Server, PostgreSQL, SQLite...
+- IDE: Visual Studio 2022 / Rider / VS Code
+- (Optional) SQL Server, PostgreSQL, or SQLite
 - Git
 
 ---
 
-## ▶️ Démarrage rapide
+## Quick Start
 
-### 🔁 Cloner le projet
+### Clone the repository
 
 git clone https://github.com/Bocar-MG/LeaveManagementSystem.git
 cd LeaveManagementSystem
 dotnet restore
 dotnet run --project .\ManagementSystem.WebApi
-
 
 
